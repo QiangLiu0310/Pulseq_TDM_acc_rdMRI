@@ -6,4 +6,5 @@ in single-band and Multi-band 2 formats.
 
 By Qiang Liu et al., Brigham and Women's Hospital, Harvard Medical School.
 
-![Seq](https://github.com/QiangLiu0310/Pulseq_TDM_acc_rdMRI/assets/57293863/76c20c65-b695-4e27-bd8b-eb0d1233532a)
+
+![Seq](https://github.com/QiangLiu0310/Pulseq_TDM_acc_rdMRI/assets/57293863/1b86297e-32e1-4124-8768-e1c08694e0e3)
