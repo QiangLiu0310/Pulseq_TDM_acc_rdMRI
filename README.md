@@ -6,10 +6,10 @@ in single-band and Multi-band 2 formats.
 
 By Qiang Liu et al., Brigham and Women's Hospital, Harvard Medical School.
 
-# REDIM code 
+# REDIM code (Lipeng Ning)
 https://github.com/LipengNing/REDIM
 
-# MaxEnt-RDD code
+# MaxEnt-RDD code (Lipeng Ning)
 https://github.com/LipengNing/ME-RDD
 
 
