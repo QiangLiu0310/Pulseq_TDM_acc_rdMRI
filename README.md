@@ -6,5 +6,12 @@ in single-band and Multi-band 2 formats.
 
 By Qiang Liu et al., Brigham and Women's Hospital, Harvard Medical School.
 
+# REDIM code 
+https://github.com/LipengNing/REDIM
+
+# MaxEnt-RDD code
+https://github.com/LipengNing/ME-RDD
+
+
 
 ![Seq](https://github.com/QiangLiu0310/Pulseq_TDM_acc_rdMRI/assets/57293863/1b86297e-32e1-4124-8768-e1c08694e0e3)
