@@ -1,11 +1,11 @@
 %% for Pulseq TDM EPI data
 % rawdata format: [PE Slice (MB2) Dir TE B-value]
 close all; clear all ; clc
-addpath(genpath('/data/pnl/home/ql087/functions_recon'))
-addpath(genpath('/data/pnl/home/ql087/freesurfer'))
-addpath(genpath('/data/pnl/home/ql087/Pulseq_Qiang_PNL'))
-addpath(genpath('/data/pnl/home/ql087/Bruker_2022'))
-addpath(genpath('/data/pnl/home/ql087/VecNorm'))
+addpath(genpath('../../functions_recon'))
+% addpath(genpath('/data/pnl/home/ql087/freesurfer'))
+addpath(genpath('../../Pulseq_Qiang_v142-main'))
+% addpath(genpath('/data/pnl/home/ql087/Bruker_2022'))
+% addpath(genpath('/data/pnl/home/ql087/VecNorm'))
 
 %% file path
 save_path='/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/data_processing/TDM_revision/sub_3/';
@@ -21,7 +21,7 @@ for iTDM=1:3
     [~,I]=sort([D(:).datenum]);
     twix_obj = mapVBVD([data_path filename1]);
     seq = mr.Sequence();
-    read(seq,'/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/Tests/Test_2023/Test_72_Dec_26/signleecho_mb1_30sli_2p5mm_R3_multib_te1_recon.seq')
+    read(seq,'../signleecho_mb1_30sli_2p5mm_R3_multib_te1_recon.seq')
     [ktraj_adc, t_adc, ktraj, t_ktraj, t_excitation, t_refocusing] = seq.calculateKspacePP();
 
     %% define raw data
@@ -162,7 +162,7 @@ for iTDM=1:3
     [~,I]=sort([D(:).datenum]);
     twix_obj = mapVBVD([data_path filename2]);
     seq = mr.Sequence();
-    read(seq,'/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/Tests/Test_2023/Test_72_Dec_26/epidiff_3_shot_ref_2p5mm_60sli_appa_recon.seq') % I want to keep this line, QL
+    read(seq,'../epidiff_3_shot_ref_2p5mm_60sli_appa_recon.seq') % I want to keep this line, QL
     [ktraj_adc, t_adc, ktraj, t_ktraj, t_excitation, t_refocusing] = seq.calculateKspacePP();
 
     if iscell(twix_obj)

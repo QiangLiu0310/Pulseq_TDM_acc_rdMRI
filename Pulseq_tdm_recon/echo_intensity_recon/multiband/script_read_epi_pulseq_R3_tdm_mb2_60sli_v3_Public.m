@@ -4,11 +4,11 @@
 
 close all; clear all ; clc
 
-addpath(genpath('/data/pnl/home/ql087/functions_recon'))
-addpath(genpath('/data/pnl/home/ql087/freesurfer'))
-addpath(genpath('/data/pnl/home/ql087/Pulseq_Qiang_PNL'))
-addpath(genpath('/data/pnl/home/ql087/Bruker_2022'))
-addpath(genpath('/data/pnl/home/ql087/VecNorm'))
+addpath(genpath('../../functions_recon'))
+% addpath(genpath('/data/pnl/home/ql087/freesurfer'))
+addpath(genpath('../../Pulseq_Qiang_v142-main'))
+% addpath(genpath('/data/pnl/home/ql087/Bruker_2022'))
+% addpath(genpath('/data/pnl/home/ql087/VecNorm'))
 
 %% file path
 save_path='/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/data_processing/TDM_revision/sub_3/';

@@ -1,0 +1,5 @@
+Total number of cores
+2
+nmodules modIds... 
+6	1	2	0	3	4	0
+6	1	2	0	5	4	0
