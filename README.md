@@ -2,8 +2,16 @@
 # Pulseq seq files for accelerated T2-Relaxation-diffusion MRI
 Time-division multiplexing (TDM) sequence and Multi-echo (3) sequences
 
+# Pulseq code
+Pulseq code/multiband: Pulseq MB2 sequences
+Pulseq code/singleband: Pulseq single band sequences
+Because TDM sequence is patent, we share the seq file for TDM sequences using in our study:
+seq files/
+
+
 # Recon code
 Pulseq_tdm_recon/echo_intensity_recon/multiband: mb2 recon code
+
 Pulseq_tdm_recon/echo_intensity_recon/singleband: sb recon code
 
 # Test data and example recon code
