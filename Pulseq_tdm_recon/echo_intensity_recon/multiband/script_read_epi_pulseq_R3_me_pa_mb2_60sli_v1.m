@@ -5,12 +5,14 @@ addpath(genpath('/data/pnl/home/ql087/Pulseq_Qiang_PNL'))
 addpath(genpath('/data/pnl/home/ql087/Bruker_2022'))
 addpath(genpath('/data/pnl/home/ql087/VecNorm'))
 
-save_path='/data/pnl/home/ql087/data_processing/2024_01_09_pulseq_multiecho_mb_phantom/';
-data_path = '/data/pnl/home/ql087/data_bwh/2024_01_09_bwh_pulseq/'
-filename1 = 'meas_MID00636_FID04623_pulseq_mb2_me_te456_a';
-filename2 = 'meas_MID00637_FID04624_pulseq_mb2_me_te456_b';
-filename3 = 'meas_MID00638_FID04625_pulseq_mb2_me_te456_c';
-filename4 = 'meas_MID00639_FID04626_pulseq_60sli_3_shot_ref'; % ACS
+save_path='/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/data_processing/TDM_revision/sub_3/';
+save_filename = 'pulseq_me_te123_pa_2.mat';
+
+data_path = '/data/pnlx/home/ln915/Data/TDMvsME/sub3/raw/'
+filename1 = 'meas_MID01177_FID61532_pulseq_mb2_me_te123_a';
+filename2 = 'meas_MID01178_FID61533_pulseq_mb2_me_te123_b';
+filename3 = 'meas_MID01179_FID61534_pulseq_mb2_me_te123_c';
+filename4 = 'meas_MID01176_FID61531_pulseq_60sli_3_shot_ref'; % ACS
 
 
 %% section a
@@ -590,4 +592,4 @@ img_final(:,:,:,2:end)=img;
 clear img
 img_final=img_final(:,:,:,2:2:end);
 
-save([save_path 'pulseq_me_te456_pa.mat'],'img_final','-v7.3')
+save([save_path, save_filename],'img_final','-v7.3') 

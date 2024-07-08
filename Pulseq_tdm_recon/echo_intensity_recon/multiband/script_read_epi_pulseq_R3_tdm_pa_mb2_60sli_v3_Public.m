@@ -5,15 +5,14 @@ addpath(genpath('/data/pnl/home/ql087/functions_recon'))
 addpath(genpath('/data/pnl/home/ql087/freesurfer'))
 addpath(genpath('/data/pnl/home/ql087/Pulseq_Qiang_PNL'))
 addpath(genpath('/data/pnl/home/ql087/Bruker_2022'))
-addpath(genpath('/data/pnl/home/ql087/functions_recon'))
 addpath(genpath('/data/pnl/home/ql087/VecNorm'))
 
 %% file path
-save_path='/data/pnl/home/ql087/data_processing/2024_01_09_pulseq_multiecho_mb_phantom/';
-data_path = '/data/pnl/home/ql087/data_bwh/2024_01_09_bwh_pulseq/'
-filename1 = 'meas_MID00624_FID04611_pulseq_mb2_tdm_te456'; %TDM data
-filename2 = 'meas_MID00625_FID04612_pulseq_60sli_3_shot_ref'; %read the reference
-te_group=2; % te_group1: TE[70 95 120]; te_group2: TE[82 107 132]; the name of the reconed image is depend on it
+save_path='/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/data_processing/TDM_revision/sub_3/';
+data_path = '/data/pnlx/home/ln915/Data/TDMvsME/sub3/raw/'
+filename1 = 'meas_MID01164_FID61519_pulseq_mb2_tdm_te123'; %TDM data
+filename2 = 'meas_MID01165_FID61520_pulseq_60sli_3_shot_ref'; %read the reference
+te_group=1; % te_group1: TE[70 95 120]; te_group2: TE[82 107 132]; the name of the reconed image is depend on it
 
 %% recon
 for iTDM=1:3
@@ -382,6 +381,7 @@ for iTDM=1:3
     else
         save([save_path 'pulseq_tdm',num2str(iTDM+3), '_pa.mat'],'img_final','-v7.3')
     end
-
+%     clear D I twix_obj seq
 %     save([save_path 'pulseq_tdm_6_pa.mat'],'img_final','-v7.3')
+clearvars -except iTDM data_path filename1 te_group filename2 save_path
 end

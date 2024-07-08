@@ -2,12 +2,7 @@ close all; clear all ; clc
 %%
 
 data_path = '/data/pnl/home/ql087/data_bwh/2023_12_19_bwh_pulseq/'
-filename1 = 'meas_MID01444_FID11867_pulseq_tdm_te456'; % image
-filename2 = 'meas_MID01445_FID11868_pulseq_3_shot'; % reference
-save_path='/data/pnl/home/ql087/data_processing/2023_12_19_pulseq_multiecho/tdm_old/';
-
-for iTDM=1:3
-
+filename1 = 'meas_MID01444_FID11867_pulseq_tdm_te456'; % let's read the reference first.
 D=dir([data_path filename1]);
 [~,I]=sort([D(:).datenum]);
 twix_obj = mapVBVD([data_path filename1]);
@@ -24,7 +19,7 @@ end
 rawdata=single(rawdata);
 tmp=[1 3];
 rawdata=reshape(rawdata,[212 32 22 18 28 3 3]); % pe slice dir tdm b-value
-rawdata=squeeze(rawdata(:,:,:,:,tmp,iTDM,:));
+rawdata=squeeze(rawdata(:,:,:,:,tmp,1,:));
 clear tmp
 rawdata=reshape(rawdata,[212 32 99792/3/14]);
 
@@ -136,20 +131,7 @@ slice_index3=zeros(3,6);
 slice_index3(1,:)=slice_index(3,:); slice_index3(2,:)=slice_index(1,:); slice_index3(3,:)=slice_index(2,:);
 slice_index3=reshape(slice_index3,[slice_num,1]);
 [~,porder3]=sort(slice_index3);
-
-    switch iTDM
-        case 1
-            porder = porder1;
-        case 2
-            porder = porder2;
-        case 3
-            porder = porder3;
-        otherwise
-            error('iTDM must be between 1 and 3.');
-    end
-
-Kimage_short(:,:,:,:,:)=Kimage_short(:,:,:,porder,:);
-
+Kimage_short(:,:,:,:,:)=Kimage_short(:,:,:,porder1,:);
 clear rawdata data_resampled k_gc slice_index3 slice_index2 slice_index1 slice_index
 
 Kimage_first_full=zeros(Nx, nCoils, Ny_sampled*3,slice_num,diff_plus_dum-1);
@@ -160,9 +142,11 @@ clear Kimage_short
 
 
 %% ACS data 
-D=dir([data_path filename2]);
+data_path='/data/pnl/home/ql087/data_bwh/2023_12_19_bwh_pulseq/'
+filename1 = 'meas_MID01445_FID11868_pulseq_3_shot'; % let's read the reference first.
+D=dir([data_path filename1]);
 [~,I]=sort([D(:).datenum]);
-twix_obj = mapVBVD([data_path filename2]);
+twix_obj = mapVBVD([data_path filename1]);
 seq = mr.Sequence();             
 read(seq,'/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/Tests/Test_2023/Test_69_Dec_17/recon/epidiff_3_shot_ref_2p5mm_18sli_appa_recon.seq') % I want to keep this line, QL
 [ktraj_adc, t_adc, ktraj, t_ktraj, t_excitation, t_refocusing] = seq.calculateKspacePP();
@@ -286,6 +270,7 @@ end
 I_short=reshape(I_short, [88 88 18 5]);
 I_short=I_short(:,:,:,1:2:end);
 
+save_path='/data/pnl/home/ql087/data_processing/2023_12_19_pulseq_multiecho/tdm_old/';
 save([save_path 'tdm_group4_pa.mat'], 'I_short', '-v7.3')
     
 

@@ -3,13 +3,7 @@ close all; clear all ; clc
 %%
 % section a
 data_path = '/data/pnl/home/ql087/data_bwh/2023_12_22_bwh_pulseq/'
-filename1 = 'meas_MID00062_FID14102_pulseq_treecho_te456_a'; % image
-filename2 = 'meas_MID00063_FID14103_pulseq_treecho_te456_b'; % image
-filename3 = 'meas_MID00064_FID14104_pulseq_3_shot'; % reference
-save_path='/data/pnl/home/ql087/data_processing/2023_12_22_pulseq_multiecho/';
-
-
-
+filename1 = 'meas_MID00062_FID14102_pulseq_treecho_te456_a'; % let's read the reference first.
 D=dir([data_path filename1]);
 [~,I]=sort([D(:).datenum]);
 twix_obj = mapVBVD([data_path filename1]);
@@ -132,9 +126,11 @@ Kimage_first_full=zeros(Nx, nCoils, Ny_sampled*3,slice_num*2,diff_plus_dum-1);
 Kimage_first_full(:,:,3:3:end,1:slice_num,:) = Kimage_first;
 
 %% section b
-D=dir([data_path filename2]);
+data_path = '/data/pnl/home/ql087/data_bwh/2023_12_22_bwh_pulseq/'
+filename1 = 'meas_MID00063_FID14103_pulseq_treecho_te456_b'; % let's read the reference first.
+D=dir([data_path filename1]);
 [~,I]=sort([D(:).datenum]);
-twix_obj = mapVBVD([data_path filename2]);
+twix_obj = mapVBVD([data_path filename1]);
 seq = mr.Sequence();
 read(seq,'/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/Tests/Test_70_Dec_19/recon/signleecho_mb1_9sli_2p5mm_R3_multib_te1_recon.seq')
 [ktraj_adc, t_adc, ktraj, t_ktraj, t_excitation, t_refocusing] = seq.calculateKspacePP();
@@ -261,9 +257,11 @@ Kimage_first_full(:,:,:,:,:)=Kimage_first_full(:,:,:,porder1,:);
 clear rawdata data_resampled  Kimage_first k_gc
 
 %% ACS data
-D=dir([data_path filename3]);
+data_path='/data/pnl/home/ql087/data_bwh/2023_12_22_bwh_pulseq/'
+filename1 = 'meas_MID00064_FID14104_pulseq_3_shot'; % let's read the reference first.
+D=dir([data_path filename1]);
 [~,I]=sort([D(:).datenum]);
-twix_obj = mapVBVD([data_path filename3]);
+twix_obj = mapVBVD([data_path filename1]);
 seq = mr.Sequence();
 read(seq,'/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/Tests/Test_2023/Test_69_Dec_17/recon/epidiff_3_shot_ref_2p5mm_18sli_appa_recon.seq') % I want to keep this line, QL
 [ktraj_adc, t_adc, ktraj, t_ktraj, t_excitation, t_refocusing] = seq.calculateKspacePP();
@@ -393,5 +391,6 @@ tmp=tmp(:,:,:,tmp1,:,:);
 I_short=tmp;
 clear tmp
 
+save_path='/data/pnl/home/ql087/data_processing/2023_12_22_pulseq_multiecho/';
 save([save_path 'phantom_me_te456.mat'], 'I_short', '-v7.3')
 

@@ -1,13 +1,13 @@
 clear;close all;clc;
 
 
-Base_dir='/data/pnl/home/ql087/data_processing/2024_01_05_pulseq_multiecho_mb_invivo/invivo_tdm/processing/';
+Base_dir='/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/data_processing/TDM_revision/sub_3/tdm/';
+te_group=2;
 
 
-
-tmp1=strcat(Base_dir, 'pulseq_tdm_4_pa.mat');
-tmp2=strcat(Base_dir, 'pulseq_tdm_5_pa.mat');
-tmp3=strcat(Base_dir, 'pulseq_tdm_6_pa.mat');
+tmp1=strcat(Base_dir, 'pulseq_tdm4_pa.mat');
+tmp2=strcat(Base_dir, 'pulseq_tdm5_pa.mat');
+tmp3=strcat(Base_dir, 'pulseq_tdm6_pa.mat');
 load(tmp1);
 tdm1=img_final;
 load(tmp2)
@@ -48,8 +48,11 @@ tdm3(:,:,41:10*5,:,:)=tmp3(:,:,41:10*5,:,:);
 tdm3(:,:,51:10*6,:,:)=tmp1(:,:,51:10*6,:,:);
 
 clear tmp*
+if (te_group==2)
 tdm4=tdm1;
 tdm5=tdm2;
 tdm6=tdm3;
 save('tdm_te456_pa.mat','tdm4','tdm5','tdm6')
-% save('tdm_te123_pa.mat','tdm1','tdm2','tdm3')
+else
+save('tdm_te123_pa.mat','tdm1','tdm2','tdm3')
+end

@@ -8,14 +8,13 @@ addpath(genpath('/data/pnl/home/ql087/functions_recon'))
 addpath(genpath('/data/pnl/home/ql087/freesurfer'))
 addpath(genpath('/data/pnl/home/ql087/Pulseq_Qiang_PNL'))
 addpath(genpath('/data/pnl/home/ql087/Bruker_2022'))
-addpath(genpath('/data/pnl/home/ql087/functions_recon'))
 addpath(genpath('/data/pnl/home/ql087/VecNorm'))
 
 %% file path
-save_path='/data/pnl/home/ql087/data_processing/2024_01_09_pulseq_multiecho_mb_phantom/';
-data_path = '/data/pnl/home/ql087/data_bwh/2024_01_09_bwh_pulseq/'
-filename1 = 'meas_MID00624_FID04611_pulseq_mb2_tdm_te456'; %TDM data
-filename2 = 'meas_MID00625_FID04612_pulseq_60sli_3_shot_ref'; %read the reference
+save_path='/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/data_processing/TDM_revision/sub_3/';
+data_path = '/data/pnlx/home/ln915/Data/TDMvsME/sub3/raw/'
+filename1 = 'meas_MID01213_FID61568_pulseq_mb2_tdm_te456'; %TDM data
+filename2 = 'meas_MID01214_FID61569_pulseq_60sli_3_shot_ref'; %read the reference
 te_group=2; % te_group1: TE[70 95 120]; te_group2: TE[82 107 132]; the name of the reconed image is depend on it
 
 for iTDM=1:3
@@ -24,7 +23,7 @@ for iTDM=1:3
     [~,I]=sort([D(:).datenum]);
     twix_obj = mapVBVD([data_path filename1]);
     seq = mr.Sequence();
-    read(seq,'signleecho_mb1_30sli_2p5mm_R3_multib_te1_recon.seq')
+    read(seq,'/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/Tests/Test_2023/Test_72_Dec_26/signleecho_mb1_30sli_2p5mm_R3_multib_te1_recon.seq')
     [ktraj_adc, t_adc, ktraj, t_ktraj, t_excitation, t_refocusing] = seq.calculateKspacePP();
 
     %% define raw data
@@ -162,7 +161,7 @@ for iTDM=1:3
     [~,I]=sort([D(:).datenum]);
     twix_obj = mapVBVD([data_path filename2]);
     seq = mr.Sequence();
-    read(seq,'epidiff_3_shot_ref_2p5mm_60sli_appa_recon.seq') % I want to keep this line, QL
+    read(seq,'/rfanfs/pnl-zorro/home/ql087/qiang_gSlider_data/lq/Tests/Test_2023/Test_72_Dec_26/epidiff_3_shot_ref_2p5mm_60sli_appa_recon.seq') % I want to keep this line, QL
     [ktraj_adc, t_adc, ktraj, t_ktraj, t_excitation, t_refocusing] = seq.calculateKspacePP();
 
     if iscell(twix_obj)
@@ -227,7 +226,7 @@ for iTDM=1:3
     end
 
     clear rawdata data_resampled
-    load('prot_mb4.mat')
+    load('/data/pnl/home/ql087/data_bwh/prot_mb4.mat')
     PhaseShift=2*pi/2;
 
     acs=permute(k_gc_1(2:13,:,:,:), [2 4 1 3]);
@@ -379,5 +378,5 @@ for iTDM=1:3
     else
         save([save_path 'pulseq_tdm',num2str(iTDM+3), '.mat'],'img_final','-v7.3')
     end
-
+clearvars -except iTDM data_path filename1 te_group filename2 save_path
 end
