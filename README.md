@@ -17,7 +17,7 @@ Pulseq_tdm_recon/echo_intensity_recon/singleband: sb recon code
 # Test data and example recon code
 A test dataset and its recon code can be found at: https://www.dropbox.com/scl/fo/njstbt5utv0dw3fzr5n30/AHBj-RZ1wAtH7SPnZwiqq2o?rlkey=xd6g4kp8l58kq3cune5yudpm4&dl=0
 
-# By Qiang Liu et al., Brigham and Women's Hospital, Harvard Medical School.
+By Qiang Liu et al., Brigham and Women's Hospital, Harvard Medical School.
 
 # REDIM code (Lipeng Ning, Ph.D.)
 https://github.com/LipengNing/REDIM
