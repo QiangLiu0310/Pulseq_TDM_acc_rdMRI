@@ -5,7 +5,7 @@ Time-division multiplexing (TDM) sequence and Multi-echo (3) sequences
 # Pulseq code
 Pulseq code/multiband: Pulseq MB2 sequences
 Pulseq code/singleband: Pulseq single band sequences
-Because TDM sequence is patent, we share the seq file for TDM sequences using in our study:
+Because TDM sequence is patented, we share the seq file for TDM sequences used in our study:
 seq files/
 
 
@@ -19,10 +19,10 @@ A test dataset can be found at: https://www.dropbox.com/scl/fo/njstbt5utv0dw3fzr
 
 By Qiang Liu et al., Brigham and Women's Hospital, Harvard Medical School.
 
-# REDIM code (Lipeng Ning)
+# REDIM code (Lipeng Ning, Ph.D.)
 https://github.com/LipengNing/REDIM
 
-# MaxEnt-RDD code (Lipeng Ning)
+# MaxEnt-RDD code (Lipeng Ning, Ph.D.)
 https://github.com/LipengNing/ME-RDD
 
 
