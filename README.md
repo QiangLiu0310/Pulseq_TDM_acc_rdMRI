@@ -26,6 +26,6 @@ https://github.com/LipengNing/REDIM
 https://github.com/LipengNing/ME-RDD
 
 # Our recent MRM paper:
-Liu Q, Gagoski B, Shaik IA, et al. Time‐division multiplexing (TDM) sequence removes bias in T 2 estimation and relaxation‐diffusion measurements. Magn Reson Med 2024,1-14.
+Liu Q, Gagoski B, Shaik IA, et al. Time‐division multiplexing (TDM) sequence removes bias in T2 estimation and relaxation‐diffusion measurements. Magn Reson Med 2024.1-14.
 
 
