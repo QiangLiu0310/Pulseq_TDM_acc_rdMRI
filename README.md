@@ -25,4 +25,7 @@ https://github.com/LipengNing/REDIM
 # MaxEnt-RDD code (Lipeng Ning, Ph.D.)
 https://github.com/LipengNing/ME-RDD
 
+# Our recent MRM paper:
+Liu Q, Gagoski B, Shaik IA, et al. Time‐division multiplexing (TDM) sequence removes bias in T 2 estimation and relaxation‐diffusion measurements. Magn Reson Med 2024,1-14.
+
 
